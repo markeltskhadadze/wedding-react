@@ -27,16 +27,16 @@ const categoryItems: CategoryItem[] = [
 function VendorsSlider() {
     return (
         <div className="relative">
-            <button className="custom-prev flex items-center justify-center w-[56px] h-[56px] absolute top-1/2 -left-4 z-10 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-md">
+            <button className="custom-prev flex items-center justify-center w-[56px] h-[56px] absolute top-[120px] -left-12 z-10 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-md">
                 <ChevronLeftIcon className="text-[#FF385C] w-[24px] h-[24px]" />
             </button>
-            <button className="custom-next flex items-center justify-center w-[56px] h-[56px] absolute top-1/2 -right-4 z-10 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-md">
+            <button className="custom-next flex items-center justify-center w-[56px] h-[56px] absolute top-[120px] -right-12 z-10 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-md">
                 <ChevronRightIcon className="text-[#FF385C] w-[24px] h-[24px]" />
             </button>
 
             <Swiper
                 spaceBetween={20}
-                slidesPerView={6}
+                slidesPerView={10}
                 modules={[Navigation]}
                 navigation={{
                     prevEl: '.custom-prev',
@@ -54,7 +54,7 @@ function VendorsSlider() {
                             >
                                 <span className="text-gray-500 text-xl">{item.name[0]}</span>
                             </div>
-                            <p className="text-xs font-normal text-[#49516F] text-center">{item.name}</p>
+                            <p className="text-xs font-normal text-[#49516F] text-center cursor-pointer">{item.name}</p>
                         </div>
                     </SwiperSlide>
                 ))}

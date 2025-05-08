@@ -1,5 +1,6 @@
 import { Dialog } from 'radix-ui'
 import { Cross2Icon } from '@radix-ui/react-icons'
+import { VisuallyHidden } from '@radix-ui/react-visually-hidden'
 import type { ReactNode } from 'react'
 import './Modal.css'
 
@@ -18,22 +19,22 @@ function Modal(props: ModalProps) {
             <Dialog.Portal>
                 <Dialog.Overlay className="DialogOverlay" />
                 <Dialog.Content className="DialogContent">
-                    {props.title && <Dialog.Title className="DialogTitle">{props.title}</Dialog.Title>}
+                    {!props.title && (
+                        <Dialog.Title asChild>
+                            <VisuallyHidden>Modal</VisuallyHidden>
+                        </Dialog.Title>
+                    )}
                     {props.description && (
                         <Dialog.Description className="DialogDescription">
                             {props.description}
                         </Dialog.Description>
                     )}
                     {props.children}
-                    <div style={{ display: 'flex', marginTop: 25, justifyContent: 'flex-end' }}>
-                        {props.footer ? (
-                            props.footer
-                        ) : (
-                            <Dialog.Close asChild>
-                                <button className="Button green">Save</button>
-                            </Dialog.Close>
-                        )}
-                    </div>
+                    {props.footer && (
+                        <div style={{ display: 'flex', marginTop: 25, justifyContent: 'flex-end' }}>
+                            {props.footer}
+                        </div>
+                    )}
                     <Dialog.Close asChild>
                         <button className="IconButton" aria-label="Close">
                             <Cross2Icon />
