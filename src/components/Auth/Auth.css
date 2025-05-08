@@ -1,0 +1,20 @@
+.auth-background {
+    position: relative;
+    background-image: url("../../assets/modal-bg.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    border-radius: 24px 0 0 24px;
+}
+
+.auth-background::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+            linear-gradient(0deg, rgba(217, 217, 217, 0.8), rgba(217, 217, 217, 0.8)),
+            linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+    pointer-events: none;
+    z-index: 1;
+}

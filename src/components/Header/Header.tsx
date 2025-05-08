@@ -1,6 +1,7 @@
 import './Header.css'
 import { MagnifyingGlassIcon } from '@radix-ui/react-icons'
 import Modal from '../ui/Modal/Modal.tsx'
+import Auth from '../Auth/Auth.tsx'
 
 type NavItem = {
     label: string
@@ -19,7 +20,7 @@ function Header() {
 
     return (
         <header className="header-container w-full h-[460px] bg-white shadow px-4 py-3 items-center justify-center">
-            <div className="flex justify-between items-center w-full fixed z-20">
+            <div className="flex justify-between items-center w-full z-20">
                 <div className="text-xl font-bold text-blue-600">MyApp</div>
                 <nav className="flex gap-4">
                     {navItems.map(({label, href}) => (
@@ -33,8 +34,6 @@ function Header() {
                     ))}
                 </nav>
                 <Modal
-                    title="Редактировать профиль"
-                    description="Измени данные"
                     trigger={
                         <button
                             className="bg-[#FF385C] rounded-[12px] w-[118px] h-[56px] py-4 px-8 text-white text-lg"
@@ -44,10 +43,7 @@ function Header() {
                         </button>
                     }
                 >
-                    <form className="flex flex-col gap-4 mt-4">
-                        <input type="text" placeholder="Имя" className="border p-2 rounded" />
-                        <input type="text" placeholder="Email" className="border p-2 rounded" />
-                    </form>
+                    <Auth />
                 </Modal>
             </div>
             <div className="w-full h-full flex items-center justify-center">
