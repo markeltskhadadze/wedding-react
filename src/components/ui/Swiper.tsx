@@ -42,8 +42,6 @@ function VendorsSlider() {
                     prevEl: '.custom-prev',
                     nextEl: '.custom-next'
                 }}
-                onSlideChange={() => console.log('slide change')}
-                onSwiper={(swiper) => console.log(swiper)}
             >
                 {categoryItems.map((item) => (
                     <SwiperSlide key={item.id}>
